@@ -15,6 +15,5 @@ namespace E_Commerce.Domain.Contracts
         void Add(TEntity entity);
         void Update(TEntity entity);
         void Remove(TEntity entity);
-        Task<IReadOnlyList<TEntity>> GetAllAsync(CancellationToken ct);
     }
 }
