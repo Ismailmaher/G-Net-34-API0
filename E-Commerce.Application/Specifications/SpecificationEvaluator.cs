@@ -21,9 +21,20 @@ namespace E_Commerce.Application.Specifications
             if (spec.IncludeExpersions.Any())
             {
                query = spec.IncludeExpersions.Aggregate(query, (current, expression) => current.Include(expression));
-
             }
-           
+           if(spec.OrderBy != null)
+            {
+                query = query.OrderBy(spec.OrderBy);
+            }
+            if(spec.OrderByDescending != null)
+            {
+                query = query.OrderByDescending(spec.OrderByDescending);
+            }
+
+            if (spec.IsPaginated)
+            {
+                query = query.Skip(spec.Skip).Take(spec.Take);
+            }
             return query;
         }   
     }
