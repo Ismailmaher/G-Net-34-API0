@@ -15,6 +15,7 @@ namespace E_Commerce.Application
         {
             services.AddAutoMapper(typeof(ApplicationServicesRegesteration).Assembly);
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IBasketService, BasketService>();
             return services;
         }
     }
